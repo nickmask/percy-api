@@ -10,7 +10,7 @@ router.post("/", (req, res) => {
   user.setPassword(password);
   user
     .save()
-    .then(user => res.json({ user: user.toAuthJSON() }))
+    .then(userRecord => res.json({ user: userRecord.toAuthJSON() }))
     .catch(err =>
       res.status(400).json({ user: {}, errors: parseErrors(err.errors) })
     );
